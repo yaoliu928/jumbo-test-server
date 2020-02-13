@@ -4,7 +4,7 @@ const axios = require('./../utils/axios');
 const Movie = require('./../models/Movie');
 const responseFormatter = require('./../utils/responseFormatter');
 
-const { apiKey } = process.env;
+const { API_KEY } = process.env;
 const router = express.Router();
 
 router.get('/:id', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
     method: 'get',
     url: `/movie/${id}`,
     params: {
-      api_key: apiKey,
+      api_key: API_KEY,
     },
   })
     .then((response) => responseFormatter(res, 200, null, new Movie(response)))

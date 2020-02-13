@@ -4,7 +4,7 @@ const axios = require('./../utils/axios');
 const Popular = require('./../models/Popular');
 const responseFormatter = require('./../utils/responseFormatter');
 
-const { apiKey } = process.env;
+const { API_KEY } = process.env;
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     url: '/search/movie',
     params: {
       query: keyWord,
-      api_key: apiKey,
+      api_key: API_KEY,
       page,
     },
   })

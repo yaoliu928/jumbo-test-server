@@ -6,8 +6,6 @@ require('dotenv').config();
 
 const logger = require('./utils/logger');
 const routes = require('./routes');
-const notFoundHandler = require('./middleware/notFound');
-const errorHandler = require('./middleware/errorHandler');
 
 const PORT = process.env.port || 3050;
 
@@ -18,8 +16,6 @@ app.use(morgan('dev'));
 app.use(cors());
 
 app.use('/api', routes);
-app.use(errorHandler);
-app.use(notFoundHandler);
 
 app.listen(PORT, () => {
   logger.info(`movie app has started at port ${PORT}`);

@@ -1,5 +1,5 @@
 {
-  "name": "jumbo-backend-server",
+  "name": "jumbo-test-server",
   "version": "1.0.0",
   "description": "Nodejs server of the movie website",
   "main": "index.js",

@@ -7,7 +7,7 @@ const responseFormatter = require('./../utils/responseFormatter');
 const { apiKey } = process.env;
 const router = express.Router();
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
   axios({
     method: 'get',
@@ -17,7 +17,7 @@ router.get('/:id', (req, res, next) => {
     },
   })
     .then((response) => responseFormatter(res, 200, null, new Movie(response)))
-    .catch((err) => next(err));
+    .catch(() => res.status(404).json('movie not found'));
 });
 
 module.exports = router;
